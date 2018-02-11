@@ -1,8 +1,10 @@
 language: node_js
+node_js:
+    - "8"
+cache:
+    directories:
+        - "node_modules"
 sudo: enabled
 os: linux
-before_install:
-- sudo apt-get update
-- sudo apt-get install -y git build-essential python2.7 make
 script:
 - ./build.sh

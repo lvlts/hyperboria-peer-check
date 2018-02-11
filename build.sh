@@ -1,6 +1,8 @@
 #!/bin/bash
 die() { echo "$*" 1>&2 ; exit 1; }
 
+node --version
+
 pushd cjdns
 ./do || die "[-] Build failed";
 popd
