@@ -1,0 +1,22 @@
+{
+  "name": "hyperboria-peer-check",
+  "version": "0.0.1",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lvlts/hyperboria-peer-check.git"
+  },
+  "author": "lvlts",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lvlts/hyperboria-peer-check/issues"
+  },
+  "homepage": "https://github.com/lvlts/hyperboria-peer-check#readme",
+  "dependencies": {
+    "hyperboria-peers": "^1.0.31"
+  }
+}
