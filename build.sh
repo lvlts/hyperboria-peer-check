@@ -12,13 +12,13 @@ echo -n "module.exports = " > cjdroute.conf
 cjdns/cjdroute --genconf | tee -a cjdroute.conf
 
 echo "[+] adding current peers (hyperboria/peers) to current configuration"
-node main.js | tee cjdroute.populated.conf
+./main | tee cjdroute.populated.conf
 
 echo "[+] starting cjdns"
 cjdns/cjdroute < cjdroute.populated.conf || die "Unable to start cjdns"
 
-echo "[+] waiting for connection"
-sleep 30
+echo "[+] waiting for connection (180s)"
+sleep 180
 
-ps -ef | grep cjd
-cjdns/tools/peerStats
+mkdir -p out
+./peerStats > out/index.md

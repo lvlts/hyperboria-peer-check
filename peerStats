@@ -1,0 +1,51 @@
+#!/usr/bin/env node
+/* -*- Mode:Js */
+/* vim: set expandtab ts=4 sw=4: */
+/*
+ * You may redistribute this program and/or modify it under the terms of
+ * the GNU General Public License as published by the Free Software Foundation,
+ * either version 3 of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+var Cjdns = require('./cjdns/tools/lib/cjdnsadmin/cjdnsadmin');
+var PublicToIp6 = require('./cjdns/tools/lib/publicToIp6');
+var Peers = require('hyperboria-peers');
+
+handlePeers = function (peers) {
+    Peers.filter(function (creds, path) {
+        for (const peer in creds)
+            if (creds.hasOwnProperty(peer))
+                if (peer.indexOf('[') === -1) {
+                    if (typeof(peers[creds[peer].publicKey]) !== 'undefined')
+                        console.log(path.join('/')+" "+peers[creds[peer].publicKey]);
+                }
+    });
+}
+
+
+Cjdns.connectAsAnon(function (cjdns) {
+    var peers = {};
+    var again = function (i) {
+        cjdns.InterfaceController_peerStats(i, function (err, ret) {
+            if (err) { throw err; }
+            ret.peers.forEach(function (peer) {
+                peers[peer['addr'].split('.').slice(-2).join('.')] = peer['state'];
+            });
+            if (typeof(ret.more) !== 'undefined') {
+                again(i+1);
+            } else {
+                cjdns.disconnect();
+                handlePeers(peers);
+            }
+        });
+    };
+    again(0);
+});
+

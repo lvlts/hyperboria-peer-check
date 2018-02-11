@@ -8,3 +8,10 @@ sudo: enabled
 os: linux
 script:
 - ./build.sh
+
+deploy:
+    provider: pages
+    skip-cleanup: true
+    github-token: $GITHUB_TOKEN
+    on:
+        branch: gh-pages
