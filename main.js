@@ -24,8 +24,8 @@ const arrayToObject = function (array) {
 }
 
 peers = arrayToObject(getPeers('eu'));
-var CONFIG = require("./cjdroute.conf");
 
+var CONFIG = require("./cjdroute.conf");
 CONFIG.interfaces.UDPInterface[0].connectTo = peers;
 
 console.log(JSON.stringify(CONFIG));
