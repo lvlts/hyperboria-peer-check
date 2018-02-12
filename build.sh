@@ -21,4 +21,5 @@ echo "[+] waiting for connection (180s)"
 sleep 18
 
 mkdir -p out
-./peerStats > out/index.md
+cp .page_template.md out/index.md
+./peerStats | tee -a out/index.md
