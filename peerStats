@@ -27,7 +27,7 @@ handlePeers = function (peers) {
             if (creds.hasOwnProperty(peer))
                 if (peer.indexOf('[') === -1) {
                     if (typeof(peers[creds[peer].publicKey]) !== 'undefined')
-                        console.log("| "+ path.join('/')+" | "+creds[peer].publicKey+" | "+peers[creds[peer].publicKey]+" | ");
+                        console.log("| ["+ path.join('/')+"](https://github.com/hyperboria/peers/tree/master/"+path.join('/')+") | "+creds[peer].publicKey+" | "+peers[creds[peer].publicKey]+" | ");
                 }
     });
 }
