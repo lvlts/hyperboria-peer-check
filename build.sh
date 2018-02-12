@@ -18,7 +18,7 @@ echo "[+] starting cjdns"
 cjdns/cjdroute < cjdroute.populated.conf || die "Unable to start cjdns"
 
 echo "[+] waiting for connection (180s)"
-sleep 180
+sleep 18
 
 mkdir -p out
 ./peerStats > out/index.md
