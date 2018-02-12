@@ -17,6 +17,9 @@
 var Cjdns = require('./cjdns/tools/lib/cjdnsadmin/cjdnsadmin');
 var PublicToIp6 = require('./cjdns/tools/lib/publicToIp6');
 var Peers = require('hyperboria-peers');
+console.log("## Peer availability table\n");
+console.log("\nTable was last generated on: **"+(new Date()).toString()+"**\n\n");
+console.log("| Peer path | Public key | Status |\n|-------|------|-------|");
 
 handlePeers = function (peers) {
     Peers.filter(function (creds, path) {

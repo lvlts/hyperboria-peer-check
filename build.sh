@@ -18,7 +18,7 @@ echo "[+] starting cjdns"
 cjdns/cjdroute < cjdroute.populated.conf || die "Unable to start cjdns"
 
 echo "[+] waiting for connection (180s)"
-sleep 18
+sleep 180
 
 mkdir -p out
 cp .page_template.md out/index.md
