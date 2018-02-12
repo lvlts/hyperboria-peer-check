@@ -11,6 +11,8 @@ script:
 
 deploy:
     provider: pages
-    skip-cleanup: true
+    skip_cleanup: true
     github-token: $GITHUB_TOKEN
     local-dir: out
+    on:
+        branch: 
