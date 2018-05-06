@@ -13,7 +13,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-var Peers = require("hyperboria-peers");
+var Peers = require("./peers/index.js");
 var fs = require('fs');
 
 const getPeers = function () {

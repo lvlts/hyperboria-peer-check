@@ -3,6 +3,10 @@ die() { echo "$*" 1>&2 ; exit 1; }
 
 node --version
 
+## pull latest commits of cjdns and hyperboria-peers
+
+git submodule update --recursive --remote
+
 pushd cjdns
 ./do || die "[-] Build failed";
 popd
