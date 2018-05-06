@@ -5,8 +5,3 @@ sudo: enabled
 os: linux
 script:
 - ./build.sh
-deploy:
-    provider: pages
-    skip_cleanup: true
-    github-token: $GITHUB_TOKEN
-    local-dir: out
