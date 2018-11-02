@@ -1,12 +1,16 @@
 language: node_js
 node_js:
     - "8"
-sudo: enabled
+sudo: required
+dist: trusty
 os: linux
 script:
 - ./build.sh
-deploy:
-    provider: pages
-    skip_cleanup: true
-    github-token: $GITHUB_TOKEN
-    local-dir: out
+before_install:
+- sudo apt-get update
+- sudo apt-get install -y miredo
+#deploy:
+    #provider: pages
+    #skip_cleanup: true
+    #github-token: $GITHUB_TOKEN
+    #local-dir: out
